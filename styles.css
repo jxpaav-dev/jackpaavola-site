@@ -230,6 +230,26 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
   height: auto;
   border: 1px solid var(--rule);
 }
+/* About: photo beside the bio, stacked on phones */
+.about-intro {
+  display: grid;
+  grid-template-columns: 14rem 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 1.75rem;
+}
+.portrait {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+}
+@media (max-width: 34rem) {
+  .about-intro { grid-template-columns: 1fr; gap: 1.25rem; }
+  .portrait { max-width: 16rem; }
+}
+
 .steps {
   display: grid;
   grid-template-columns: 2.5rem 1fr;
