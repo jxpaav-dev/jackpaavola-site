@@ -233,7 +233,7 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.5rem;
 }
 .iterations li { margin: 0; text-align: center; }
@@ -241,7 +241,7 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
 .iterations span { color: var(--muted); font-size: 0.875rem; }
 
 @media (max-width: 34rem) {
-  .iterations { grid-template-columns: repeat(3, 1fr); }
+  .iterations { grid-template-columns: repeat(2, 1fr); }
 }
 
 .todo {
