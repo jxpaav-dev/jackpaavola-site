@@ -194,8 +194,30 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
   height: auto;
   border: 1px solid var(--rule);
 }
-.shot.tall { max-width: 24rem; margin: 0 auto; }
-.prose figure:has(.tall) figcaption { text-align: center; }
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.drawings {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.prose .drawings { padding: 0; }
+.prose .drawings li { margin: 0; }
+.drawings a { display: block; }
+.drawings a:hover .shot { border-color: var(--accent); }
+.drawings span { display: block; color: var(--muted); font-size: 0.875rem; margin-top: 0.35rem; }
+.drawings li:last-child { grid-column: 1 / -1; }
+
+@media (max-width: 34rem) {
+  .drawings { grid-template-columns: 1fr; }
+}
 
 .iterations {
   list-style: none;
