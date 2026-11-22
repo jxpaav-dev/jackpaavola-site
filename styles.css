@@ -194,6 +194,8 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
   height: auto;
   border: 1px solid var(--rule);
 }
+.shot.tall { max-width: 24rem; margin: 0 auto; }
+.prose figure:has(.tall) figcaption { text-align: center; }
 
 .iterations {
   list-style: none;
