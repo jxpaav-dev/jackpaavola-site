@@ -194,6 +194,15 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
   height: auto;
   border: 1px solid var(--rule);
 }
+.steps {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.5rem 1rem;
+  margin: 0 0 1rem;
+}
+.steps dt { color: var(--accent); font-weight: 600; }
+.steps dd { margin: 0; }
+
 .pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
