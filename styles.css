@@ -156,7 +156,43 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
   font-weight: 400;
 }
 
+/* Clickable project card (has a write-up page) */
+.project.has-page {
+  grid-template-columns: 9rem 1fr 9rem;
+  position: relative;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.project.has-page h3 a::after {      /* stretch the title link over the whole card */
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.project.has-page:hover {          /* tint bleeds 0.75rem past the text column without shifting layout */
+  background: var(--surface);
+  box-shadow: -0.75rem 0 0 var(--surface), 0.75rem 0 0 var(--surface);
+}
+.project.has-page:hover h3 a { text-decoration: underline; text-decoration-color: var(--accent); }
+.project.has-page:focus-within { outline: 2px solid var(--accent); outline-offset: -2px; }
+.project .more {
+  color: var(--accent);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0;
+}
+.project .more .arrow { display: inline-block; transition: transform 0.15s ease; }
+.project.has-page:hover .more .arrow { transform: translateX(4px); }
+.project .thumb {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  align-self: start;
+}
+
 @media (max-width: 34rem) {
+  .project.has-page { grid-template-columns: 1fr; }
+  .project .thumb { order: -1; margin-bottom: 0.75rem; }
   .project { grid-template-columns: 1fr; }
   .project .when { padding-top: 0; margin-bottom: 0.25rem; }
 }
