@@ -189,6 +189,28 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
   color: var(--muted);
   font-size: 0.875rem;
 }
+.shot {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+}
+
+.iterations {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+.iterations li { margin: 0; text-align: center; }
+.iterations img { width: 100%; height: auto; }
+.iterations span { color: var(--muted); font-size: 0.875rem; }
+
+@media (max-width: 34rem) {
+  .iterations { grid-template-columns: repeat(3, 1fr); }
+}
+
 .todo {
   border-left: 2px solid var(--accent);
   padding-left: 0.75rem;
