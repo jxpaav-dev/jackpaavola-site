@@ -206,6 +206,24 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
 }
 .feature h3 { font-size: 1.4rem; margin: 0.25rem 0 0.6rem; }
 .feature > a { text-decoration: none; }
+
+/* Clickable featured card on Home */
+.card { position: relative; transition: background-color 0.15s ease, box-shadow 0.15s ease; }
+.card h3 a { text-decoration: none; }
+.card h3 a::after { content: ""; position: absolute; inset: 0; }
+.card:hover {
+  background: var(--surface);
+  box-shadow: 0 0 0 0.75rem var(--surface);
+}
+.card:hover h3 a { text-decoration: underline; text-decoration-color: var(--accent); }
+.card:focus-within { outline: 2px solid var(--accent); outline-offset: 0.75rem; }
+.card .more { color: var(--accent); font-size: 0.9375rem; font-weight: 600; margin: 0.75rem 0 0; }
+.card .arrow, .see-all .arrow { display: inline-block; transition: transform 0.15s ease; }
+.card:hover .more .arrow, .see-all a:hover .arrow { transform: translateX(4px); }
+
+.see-all { margin: 1.75rem 0 0; }
+.see-all a { text-decoration: none; color: var(--accent); font-weight: 600; font-size: 0.9375rem; }
+.see-all a:hover { text-decoration: underline; }
 .feature .meta { color: var(--muted); font-size: 0.9375rem; margin: 0; }
 
 @media (max-width: 34rem) {

@@ -14,6 +14,7 @@
   <header class="site-header wrap">
     <a class="wordmark" href="index.html">Jack Paavola</a>
     <nav class="site-nav">
+      <a href="index.html" aria-current="page">Home</a>
       <a href="projects.html">Projects</a>
       <a href="resume.html">Resume</a>
       <a href="about.html">About</a>
@@ -36,35 +37,24 @@
     <section class="section">
       <h2 class="label">Selected work</h2>
 
-      <article class="feature">
-        <a href="projects/pathfinder.html" aria-label="Pathfinder project">
-          <img class="shot" src="assets/pathfinder-photo-mounted.webp" width="1200" height="900" alt="The finished Pathfinder mount: a grey 3D-printed bracket clamping a black flashlight, held in place with a strap">
-
-        </a>
+      <!-- Whole card is clickable: the title link stretches over it (see .card in styles.css) -->
+      <article class="feature card">
+        <img class="shot" src="assets/pathfinder-photo-mounted.webp" width="1200" height="900" alt="The finished Pathfinder mount: a grey 3D-printed bracket clamping a black flashlight, held in place with a strap">
         <div>
           <p class="meta">Summer 2026 · Team lead</p>
           <h3><a href="projects/pathfinder.html">Pathfinder</a></h3>
-          <p>Custom-fit, 3D-printed brackets that mount an LED lighting system to a walker for a legally blind user. Four prototype iterations in SolidWorks.</p>
-          <a href="projects/pathfinder.html">Read the write-up</a>
+          <p>Custom-fit, 3D-printed brackets that mount an LED light to a walker, so a legally blind client can walk safely at night. Four prototype iterations in SolidWorks.</p>
+          <p class="more" aria-hidden="true">View project <span class="arrow">&rarr;</span></p>
         </div>
       </article>
+
+      <p class="see-all"><a href="projects.html">See all projects <span class="arrow">&rarr;</span></a></p>
     </section>
 
     <section class="section">
-      <h2 class="label">Also</h2>
-      <article class="project">
-        <p class="when">In progress</p>
-        <div>
-          <h3>Underwater robot</h3>
-          <p class="todo">One-line summary goes here.</p>
-        </div>
-      </article>
-      <p style="margin-top:1.25rem"><a href="projects.html">All projects</a></p>
-    </section>
-
-    <section class="section">
-      <h2 class="label">Outside the shop</h2>
-      <p>I throw discus and shot put in NCAA Division III track and field, and won the 2026 SCIAC discus title. I'm also interested in biomechanics and the stock market.</p>
+      <h2 class="label">Outside the classroom</h2>
+      <p>I throw discus and shot put as an NCAA Division III athlete, and won the 2026 SCIAC discus title in my first season. The rest of the time I'm outdoors, ideally on the water.</p>
+      <p class="see-all"><a href="about.html">More about me <span class="arrow">&rarr;</span></a></p>
     </section>
   </main>
 
