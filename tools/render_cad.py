@@ -3,7 +3,7 @@
   strip: python render_set.py strip OUT.png elev azim label1=file1 label2=file2 ...
 Strip renders every part at one shared scale so size changes are honest.
 """
-import sys
+import sys, os
 import numpy as np
 import trimesh
 import matplotlib
@@ -19,17 +19,39 @@ plt.rcParams["font.family"] = ["Segoe UI", "DejaVu Sans"]
 
 def load(p):
     m = trimesh.load(p, force="mesh")
+    if os.environ.get("YUP"):  # SolidWorks exports are Y-up; matplotlib is Z-up
+        m.apply_transform(trimesh.transformations.rotation_matrix(np.pi / 2, [1, 0, 0]))
     m.apply_translation(-m.bounds.mean(axis=0))
     return m
 
 
+def corner_normals(m, crease_deg=35):
+    """Per-corner normals smoothed across faces meeting at < crease_deg.
+    Curved surfaces (fillets, cylinders) shade smoothly; sharp edges stay sharp."""
+    fn, area = m.face_normals, m.area_faces
+    vf = m.vertex_faces  # (V, K) padded with -1
+    cos_t = np.cos(np.radians(crease_deg))
+    out = np.zeros((len(m.faces), 3, 3))
+    for c in range(3):
+        nb = vf[m.faces[:, c]]                      # (F, K)
+        valid = nb >= 0
+        nbn = fn[np.where(valid, nb, 0)]            # (F, K, 3)
+        same = (np.einsum("fkj,fj->fk", nbn, fn) > cos_t) & valid
+        w = np.where(same, area[np.where(valid, nb, 0)], 0.0)
+        acc = np.einsum("fk,fkj->fj", w, nbn)
+        acc /= np.linalg.norm(acc, axis=1, keepdims=True) + 1e-12
+        out[:, c] = acc
+    return out
+
+
 def draw(ax, m, r, elev, azim):
-    n = m.face_normals
+    cn = corner_normals(m)
     e, a = np.radians(elev + 30), np.radians(azim - 40)
     light = np.array([np.cos(e) * np.cos(a), np.cos(e) * np.sin(a), np.sin(e)])
     fill = np.array([-light[0], -light[1], 0.3])
     fill /= np.linalg.norm(fill)
-    shade = 0.55 + 0.4 * np.clip(n @ light, 0, 1) + 0.12 * np.clip(n @ fill, 0, 1)
+    corner = 0.55 + 0.4 * np.clip(cn @ light, 0, 1) + 0.12 * np.clip(cn @ fill, 0, 1)
+    shade = corner.mean(axis=1)
     c = np.clip(BASE[None, :] * shade[:, None], 0, 1)
     ax.add_collection3d(Poly3DCollection(m.triangles, facecolors=c, edgecolors=c, linewidths=0.25))
     ax.set_xlim(-r, r); ax.set_ylim(-r, r); ax.set_zlim(-r, r)
