@@ -1,4 +1,4 @@
-# jackpaavola.pages.dev
+# jackpaavola.jxpaav.workers.dev
 
 Personal site: plain HTML + one CSS file. No build step.
 
