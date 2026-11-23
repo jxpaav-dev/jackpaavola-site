@@ -8,7 +8,7 @@ Double-click `index.html`, or run `python -m http.server` here and open http://l
 ## Common edits
 - **New resume:** replace `assets/Jack_Paavola_Resume.pdf`, update `resume.html` to match, change the "Updated" date.
 - **New project:** copy an `<article class="project">` block in `projects.html`. For a write-up, copy `projects/pathfinder.html`.
-- **LinkedIn:** search for `YOUR-HANDLE`, paste your URL, and remove the `<!-- -->` around those links.
+- **LinkedIn:** linkedin.com/in/jackpaavola is linked in the footer of every page and in the Home hero.
 - **Placeholders:** anything with `class="todo"` or `class="ph"` is unfinished. Search for them before sharing the link.
 
 ## Ideas queued
