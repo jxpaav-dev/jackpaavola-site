@@ -430,3 +430,9 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
   .resume { border: 0; padding: 0; }
   a { text-decoration: none; }
 }
+
+/* External link in the nav (LinkedIn) */
+.site-nav .nav-ext span { font-size: 0.8em; color: var(--accent); }
+@media (max-width: 26rem) {
+  .site-nav { gap: 0.9rem; }
+}
