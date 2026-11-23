@@ -1,0 +1,8 @@
+// Cloudflare Workers config: serves the files in ./public as a static site.
+{
+  "name": "jackpaavola",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public"
+  }
+}
