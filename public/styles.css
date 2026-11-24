@@ -394,10 +394,12 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
 .entry { margin-bottom: 0.9rem; }
 .entry-head {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
+  align-items: baseline;
   gap: 0 1rem;
 }
+.entry-head > :first-child { flex: 1 1 auto; min-width: 0; }
 .entry-head strong { font-weight: 600; }
 .entry-head .date { color: var(--muted); white-space: nowrap; }
 .entry .sub { font-style: italic; color: var(--muted); margin: 0.1rem 0 0.2rem; }
