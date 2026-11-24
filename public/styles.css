@@ -268,6 +268,21 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
   .portrait { max-width: 16rem; }
 }
 
+/* About page: photo beside a paragraph; .flip puts the photo on the right */
+.photo-section {
+  display: grid;
+  grid-template-columns: 14rem 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+.photo-section.flip { grid-template-columns: 1fr 14rem; }
+.photo-section.flip .portrait { order: 2; }
+@media (max-width: 34rem) {
+  .photo-section, .photo-section.flip { grid-template-columns: 1fr; gap: 1.25rem; }
+  .photo-section.flip .portrait { order: 0; }
+}
+
 .steps {
   display: grid;
   grid-template-columns: 2.5rem 1fr;
