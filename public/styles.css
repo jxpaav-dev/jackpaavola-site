@@ -249,6 +249,7 @@ main { padding-top: 3rem; padding-bottom: 4rem; }
   height: auto;
   border: 1px solid var(--rule);
 }
+.project .thumb.tall { aspect-ratio: 3 / 4; }   /* portrait photo shown whole */
 .shot.hero-narrow { max-width: 24rem; }   /* tall photos: keep the lead image from filling the screen */
 /* About: photo beside the bio, stacked on phones */
 .about-intro {
